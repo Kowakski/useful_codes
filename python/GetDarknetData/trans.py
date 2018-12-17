@@ -14,14 +14,14 @@ classes = ["cat"]  #分类集，我这里是识别猫，所以是一个cat
 def convert(size, box):
     dw = 1./size[0]
     dh = 1./size[1]
-    x = (box[0] + box[1])/2.0
-    y = (box[2] + box[3])/2.0
-    w = box[1] - box[0]
-    h = box[3] - box[2]
-    x = x*dw
-    w = w*dw
-    y = y*dh
-    h = h*dh
+    x = (box[0] + box[1])/2.0        #中心点的x位置
+    y = (box[2] + box[3])/2.0        #中心点的y位置
+    w = box[1] - box[0]              #图片中物体的宽度
+    h = box[3] - box[2]              #图片中物体的高度
+    x = x*dw                         #中心点x/整个图片的宽度
+    w = w*dw                         #图中物体宽度w/整个图片的宽度
+    y = y*dh                         #图中物体y/整个图片的高度
+    h = h*dh                         #图中高度h/整个图片的高度
     return (x,y,w,h)
 
 def convert_annotation(image_id,flag,savepath):
@@ -49,8 +49,8 @@ def convert_annotation(image_id,flag,savepath):
         tree = ET.parse(in_file)
         root = tree.getroot()
         size = root.find('size')
-        w = int(size.find('width').text)
-        h = int(size.find('height').text)
+        w = int(size.find('width').text)        #整张图片的宽度
+        h = int(size.find('height').text)       #整张图片的高度
 
 
 
@@ -81,7 +81,7 @@ for year, image_set in sets:
             image_id = image_id[3:]
         list_file.write('%s/validateImage/%s.jpg\n' % (wd, image_id))
         print(image_id)
-        convert_annotation(image_id, 1, savepath)
+        convert_annotation(image_id, 1, savepath)    #中间这个参数1表示是测试数据集，image_id是图片的名字-图片名
     list_file.close()
 
     idtxt = savepath + "/trainImageId.txt";
@@ -95,6 +95,6 @@ for year, image_set in sets:
            image_id = image_id[3:]
         list_file.write('%s/trainImage/%s.jpg\n'%(wd,image_id))
         print(image_id)
-        convert_annotation(image_id,0,savepath)
+        convert_annotation(image_id,0,savepath)     #中间这个参数0表示是训练数据集
     list_file.close()
 
