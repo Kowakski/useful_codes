@@ -1,3 +1,7 @@
+/*
+ *one dimension data storage, visit. include int, float
+ *two dimension data storage, visit. include int, float
+ */
 #include "data.h"
 
 data::data( int s ):size(10){
