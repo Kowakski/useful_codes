@@ -1,3 +1,6 @@
+'''
+从视频当中获取图片
+'''
 import cv2
 
 videoCapture = cv2.VideoCapture()
