@@ -1,5 +1,24 @@
 #include<iostream>
-#include<map>
+// #include<map>
+#include "test.hpp"
+
+template<typename T1, typename T2>
+bool data<T1, T2>::insert(T1 key, T2 data){
+    mmap.insert(std::pair<T1, T2>(key, data));
+    return true;
+}
+
+template<typename T1, typename T2>
+bool data<T1, T2>::find( T1 key, T2* buf){
+    if( NULL == buf ) return false;
+    typename std::map<T1, T2>::iterator iter;
+    iter = mmap.find(key);
+    if( iter == mmap.end() ) return false;
+    memcpy(buf, &iter.second, sizeof(T2));
+    return true;
+}
+
+/*
 typedef struct {
     int buf[9][9];
 }t;
@@ -43,3 +62,5 @@ int main( void ){
     std::cout<<"m2 contains "<<m2.size()<<" elements"<<std::endl<<"m2 max size is "<<m2.max_size();
 #endif
 }
+
+*/
