@@ -16,6 +16,6 @@ int main(void)
 	printf("color = %d\n", color);
 	ReleaseInstance(&pApple);
 	assert(pApple == 0);
-    // print_test("hello");
+    print_test("hello");
 	return 0;
 }

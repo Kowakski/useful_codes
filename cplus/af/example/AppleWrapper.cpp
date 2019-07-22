@@ -3,9 +3,9 @@
 #include "apple.h"
 #include <iostream>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+// #ifdef __cplusplus
+// extern "C" {
+// #endif
 using namespace std;
 struct tagApple
 {
@@ -34,9 +34,9 @@ int print_test( char* str ){
     cout<<"C++ print"<<str<<endl;
     return 0;
 }
-#ifdef __cplusplus
-};
-#endif
+// #ifdef __cplusplus
+// };
+// #endif
 
 #else
 

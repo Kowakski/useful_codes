@@ -1,6 +1,6 @@
 #include<iostream>
 // #include<map>
-#include "test.hpp"
+#include "test.h"
 
 template<typename T1, typename T2>
 bool data<T1, T2>::insert(T1 key, T2 data){

@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include "test.hpp"
+#include "test.h"
 
 struct data_{
     data<int,TwoDimData> D;
@@ -10,7 +10,7 @@ struct data_{
  *@comment insert data struct, key is int, and data is struct
  */
 struct data_* Get_instance( void ){
-    return new struct data_;    
+    return new struct data_;
 };
 
 int data_map_two_dimen_insert( struct data_* d, int key, TwoDimData  buf ){
@@ -23,4 +23,24 @@ int data_map_two_dimen_find( struct data_*d, int key, TwoDimData* buf ){
     bool result = false;
     result = d->D.find(key, buf);
     return result;
+}
+
+TwoDimData storage_buf = {
+    {1,1,1,1,1,1,1,1,1},
+    // {1,1,1,1,1,1,1,1,1},
+    // {1,1,1,1,1,1,1,1,1},
+    // {1,1,1,1,2,1,1,1,1},
+    // {1,1,1,1,2,1,1,1,1},
+    // {1,1,1,1,2,1,1,1,1},
+    // {1,1,1,1,1,1,1,1,1},
+    // {1,1,1,1,1,1,1,1,1},
+    // {1,1,1,1,1,1,1,1,1}
+};
+
+int main( void ){
+
+    struct data_* p;
+    p = Get_instance();
+    data_map_two_dimen_insert(p, 0, storage_buf);
+    return 0;
 }
