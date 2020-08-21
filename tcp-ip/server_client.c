@@ -1,5 +1,5 @@
 /*
- *@client
+ *@client,这个放在AF程序当中，用来发送数据到服务器端，然后在服务器端处理数据
  */
 
 int client_sockfd = -1;
@@ -24,7 +24,7 @@ void socket_initial( void ){
 }
 
 /*
- *@send fv to server,发送FV值
+ *@send fv to server,发送FV值，在AF程序其他地方调用
  */
 void send_focus_value_to_server( unsigned short *buf, int length ){
     unsigned short temp_buf[255];

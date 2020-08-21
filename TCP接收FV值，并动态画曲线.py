@@ -1,3 +1,6 @@
+'''
+AF 是server 端，这个程序是client端
+'''
 import math
 import socket
 from struct import *
